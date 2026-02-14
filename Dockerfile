@@ -44,8 +44,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright browsers (now deps are present → no sudo needed)
-RUN playwright install --with-deps chromium
+
 
 # Copy the rest of your app
 COPY . .
@@ -54,4 +53,4 @@ COPY . .
 EXPOSE 8501
 
 # Start command (same as before)
-CMD ["streamlit", "run", "universal_downloader.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "form1.py", "--server.port=8501", "--server.address=0.0.0.0"]
