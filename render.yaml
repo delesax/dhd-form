@@ -1,8 +1,8 @@
 
 services:
   - type: web
-    name: universal-downloader
+    name: dhd-form
     env: python
-    buildCommand: pip install -r requirements.txt && playwright install --with-deps chromium
+    buildCommand: pip install -r requirements.txt 
     startCommand: streamlit run universal_downloader.py --server.port $PORT --server.address 0.0.0.0
     autoDeploy: true
