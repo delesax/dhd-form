@@ -1,0 +1,23 @@
+# Core app
+streamlit>=1.38.0          # or latest stable
+requests>=2.31.0
+playwright>=1.48.0          # or latest stable — very important!
+
+mimetypes
+typing
+
+beautifulsoup4>=4.12.0   # optional fallback, but useful
+lxml>=5.0.0              # faster BS4 parser
+
+
+
+# File / content handling & previews
+pillow>=10.0.0             # PIL for images
+PyPDF2>=3.0.0              # PDF metadata (optional but used in original)
+pandas>=2.0.0              # for previews / metadata export
+openpyxl>=3.1.0            # pandas Excel support
+
+
+
+
+
