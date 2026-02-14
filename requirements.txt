@@ -3,8 +3,8 @@ streamlit>=1.38.0          # or latest stable
 requests>=2.31.0
 playwright>=1.48.0          # or latest stable — very important!
 
-mimetypes
-typing
+mimetypes>=3.0.2
+typing>=4.15.0
 
 beautifulsoup4>=4.12.0   # optional fallback, but useful
 lxml>=5.0.0              # faster BS4 parser
