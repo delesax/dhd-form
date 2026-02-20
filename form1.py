@@ -23,24 +23,24 @@ PRODUCTS = [
 
 RELATED_SYSTEM: Dict[str, List[str]] = {
     
-    "Security Data [ESM]": [
+    "[ESM] Security Data": [
         "Azure - State Street CRIMS",
         "Legacy - CRIMS",
         "MDMS2"
         ],
-    "Account Data [EAM]":[
+    "[EAM] Account Data":[
         "Pega (redirect to Pega team)",
         "EAM",
         "CDP",
         "CRIMS/Appian (Raise Salesforce)",
         "Other"
         ],
-    "ESG":[
+    "[ESG] Enviro, Social, Governance":[
         "Phoenix",
         "Legacy - CRIMS",
         "Azure - State Street CRIMS",
         ],
-    "Benchmark Data [EBM]":[
+    "[EBM] Benchmark Data":[
         "Axioma",
         "Guideline Monitoring",
         "iLID",
@@ -50,12 +50,12 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "Phoenix",
         "Scope"
         ],
-    "Product Data [EPM]":[
+    "[EPM] Product Data":[
         "EPM",
         "CDP",
         "Other"
         ],
-    "Pricing [EAPM]":[
+    "[EAPM] Pricing":[
         "Quasar",
         "CDP",
         "CRIMS",
@@ -88,13 +88,13 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
 }
 
 CATEGORY_MAP: Dict[str, List[str]] = {
-    "Security Data [ESM]": [
+    "[ESM] Security Data": [
         "General Query",
         "Instrument Set-Up",
         "Share Class Set Up",
         "Wishlist Security",
     ],
-    "Account Data [EAM]":[
+    "[EAM] Account Data":[
         "New Account Data Attribute Request - L2", 
         "Change to Existing Account Data Attribute - L2",
         "Access request / EAM issue -L1",
@@ -103,19 +103,19 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Account Data Report Request - L2",
         "Other - L1"
         ],
-    "ESG":[
+    "[ESG] Enviro, Social, Governance":[
         "Data Issue", 
         "Security Detail Incorrect"
         ],
-    "Benchmark Data [EBM]":[
+    "[EBM] Benchmark Data":[
         "Index Data"
         ],
-    "Product Data [EPM]":[
+    "[EPM] Product Data":[
         "Access request / EPM issue - L1",
         "Data quality query - L1",	
         "Request for new data field or dropdown option - L1"
         ],
-    "Pricing [EAPM]":[
+    "[EAPM] Pricing":[
         "Data Query",	
         "Vendor Data Request",	
         "Access request / EPM issue",	
@@ -253,13 +253,6 @@ def display_attachments(attachments):
             st.write(f"**{file.name}**")
             size_kb = file.size / 1024
             st.caption(f"{size_kb:.1f} KB  •  {file.type or 'unknown type'}")
-
-
-
-
-
-
-
 
 
 #-----------------------------------------------------------------------------
@@ -527,4 +520,5 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
