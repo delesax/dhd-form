@@ -9,12 +9,12 @@ st.set_page_config(page_title="Data Help Desk", layout="centered")
 # Constants and mappings
 # -----------------------------------------------------------------------------
 PRODUCTS = [
-    "Security Data [ESM]",
-    "Account Data [EAM]",
-    "Enviro, Social, Governance [ESG]",
-    "Benchmark Data [EBM]",
-    "Product Data [EPM]",
-    "Pricing [EAPM]",
+    "[ESM] Security Data",
+    "[EAM] Account Data",
+    "[ESG] Enviro, Social, Governance",
+    "[EBM] Benchmark Data",
+    "[EPM] Product Data",
+    "[EAPM] Pricing",
     "LGR",
     "Market Data / Vendor Data",
     "Others",
@@ -527,3 +527,4 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
