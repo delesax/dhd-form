@@ -280,7 +280,7 @@ with c2:
 
 with c3:
     market_type = None
-    if product == "Security Data [ESM]" or product ==  "Pricing [EAPM]":
+    if product == "[ESM] Security Data" or product ==  "[EAPM] Pricing":
         market_type = selectbox_with_placeholder("Market Type", ["Public", "Private"], key="market_type")
 
 with c4:
@@ -453,8 +453,8 @@ if submitted:
 
     if not product:
         errors.append("Product Type is required.")
-    if product == "Security Data [ESM]" and not category:
-        errors.append("Category is required for Security Data [ESM].")
+    if product == "[ESM] Security Data" and not category:
+        errors.append("Category is required for [ESM] Security Data.")
     
     if not related_systems:
         errors.append("Related System is required.")
@@ -520,5 +520,6 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
