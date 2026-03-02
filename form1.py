@@ -91,29 +91,31 @@ CATEGORY_MAP: Dict[str, List[str]] = {
     "[ESM] Security Data": [
         "General Query",
         "Instrument Set-Up",
+        "Accrued Interest", 
         "Share Class Set Up",
-        "Wishlist Security",
+        "Wishlist Request",
     ],
     "[EAM] Account Data":[
-        "New Account Data Attribute Request - L2", 
-        "Change to Existing Account Data Attribute - L2",
-        "Access request / EAM issue -L1",
-        "EAM Development (Enhancement/Functionality) Request - L2",
-        "Account Data Quality Issue - L1",
-        "Account Data Report Request - L2",
-        "Other - L1"
+        "New Account Data Attribute Request", 
+        "Change to Existing Account Data Attribute",
+        "Access request / EAM issue",
+        "EAM Development (Enhancement/Functionality) Request",
+        "Account Data Quality Issue",
+        "Account Data Report Request",
+        "Other"
         ],
     "[ESG] Enviro, Social, Governance":[
         "Data Issue", 
-        "Security Detail Incorrect"
+        "Security Detail Incorrect",
+        "Ratings Request"
         ],
     "[EBM] Benchmark Data":[
         "Index Data"
         ],
     "[EPM] Product Data":[
-        "Access request / EPM issue - L1",
-        "Data quality query - L1",	
-        "Request for new data field or dropdown option - L1"
+        "Access request / EPM issue",
+        "Data quality query",	
+        "Request for new data field or dropdown option"
         ],
     "[EAPM] Pricing":[
         "Data Query",	
@@ -123,11 +125,11 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Other"
         ],
     "LGR":[
-        "RCA - L2",	
-        "Pillar 3 - L1", 
+        "RCA",	
+        "Pillar 3", 
         "FLD",	
         "NIC",
-        "Intra Month Data Quality - L2",
+        "Intra Month Data Quality",
         "LGR Month End", 
         "LGR Year End", 	
         "Others"
@@ -151,7 +153,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
 
 SUBCATEGORY_MAP: Dict[str, List[str]] = {
     "Instrument Set-Up": [
-        "Accrued Interest", "Bond", "Asset Reporting", "Derivatives",
+        "Bond", "Asset Reporting", "Derivatives",
         "Equity", "Fund", "Money Market", "Mortgage", "Unlisted",
         "Corporate Action", "TBA", "Other instrument",
     ],
@@ -168,24 +170,24 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         ]
 }
 
-CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Security",  "New Account Data Attribute Request - L2", 
-        "Change to Existing Account Data Attribute - L2",
-        "Access request / EAM issue -L1",
-        "EAM Development (Enhancement/Functionality) Request - L2",
-        "Account Data Quality Issue - L1",
-        "Account Data Report Request - L2",
-        "Other - L1", "Data Issue", 
-        "Security Detail Incorrect", "Access request / EPM issue - L1",
-        "Data quality query - L1",	
-        "Request for new data field or dropdown option - L1", "Data Query",	
+CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Security",  "New Account Data Attribute Request", 
+        "Change to Existing Account Data Attribute",
+        "Access request / EAM issue",
+        "EAM Development (Enhancement/Functionality) Request",
+        "Account Data Quality Issue",
+        "Account Data Report Request",
+        "Other", "Data Issue", 
+        "Security Detail Incorrect", "Access request / EPM issue",
+        "Data quality query",	
+        "Request for new data field or dropdown option", "Data Query",	
         "Vendor Data Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
         "Other", "FLD",	
         "NIC",
-        "Intra Month Data Quality - L2",	
-        "RCA - L2",	
-        "Pillar 3 - L1" }
+        "Intra Month Data Quality",	
+        "RCA",	
+        "Pillar 3" }
 
 ATTACHMENT_TYPES = ["csv", "xlsx", "jpg", "jpeg", "png", "pdf"]
 
@@ -281,7 +283,7 @@ with c2:
 with c3:
     market_type = None
     if product == "[ESM] Security Data" or product ==  "[EAPM] Pricing":
-        market_type = selectbox_with_placeholder("Market Type", ["Public", "Private"], key="market_type")
+        market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
 
 with c4:
     if product:
@@ -509,7 +511,7 @@ if submitted:
                 "Cost Center": "1234",
                 "Division": "Data Ops",
                 "Request Type": request_type,
-                "Market Type": market_type,
+                "Private/Public": market_type,
                 "Product": product,
                 "Category": category,
                 "Sub Category": sub_category,
@@ -520,6 +522,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
