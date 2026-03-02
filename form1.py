@@ -24,7 +24,7 @@ PRODUCTS = [
 RELATED_SYSTEM: Dict[str, List[str]] = {
     
     "[ESM] Security Data": [
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         "Legacy - CRIMS",
         "MDMS2"
         ],
@@ -71,7 +71,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "Azure - State Street CRIMS",
         "Quasar"
         ],
-    "Vendor Data":[
+    "Market Data / Vendor Data":[
         "Phoenix",
         "Azure - State Street CRIMS",
         "Quasar"
@@ -134,7 +134,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "LGR Year End", 	
         "Others"
         ],
-    "Vendor Data":[
+    "Market Data / Vendor Data":[
         "Request for New Market Data (Onboard New Service)",
         "Request for Access to Market Data (Existing)",
         "Request to Transfer Market Data Services",
@@ -170,7 +170,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         ]
 }
 
-CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Security",  "New Account Data Attribute Request", 
+CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Request",  "New Account Data Attribute Request", 
         "Change to Existing Account Data Attribute",
         "Access request / EAM issue",
         "EAM Development (Enhancement/Functionality) Request",
@@ -187,7 +187,7 @@ CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Secur
         "NIC",
         "Intra Month Data Quality",	
         "RCA",	
-        "Pillar 3" }
+          }
 
 ATTACHMENT_TYPES = ["csv", "xlsx", "jpg", "jpeg", "png", "pdf"]
 
@@ -218,7 +218,7 @@ def selectbox_with_placeholder(
 def should_show_details(category: Optional[str], sub_category: Optional[str]) -> bool:
     if not category:
         return False
-    if category == "Wishlist Security":
+    if category == "Wishlist Request":
         return False  # has its own special block
     if sub_category:
         return True
@@ -359,7 +359,7 @@ if category in Vendor_category:
             )
 
 
-if category == "Wishlist Security":
+if category == "Wishlist Request":
     st.info(
         "Use this template to request securities to be added to the LGIM State Street "
         "security universe for overnight Bloomberg enrichment (30 days)." 
@@ -400,6 +400,8 @@ if category == "Wishlist Security":
         )
     
     display_attachments(wishlist_attachments)
+
+
     
     st.divider()
     
@@ -463,7 +465,7 @@ if submitted:
     if related_systems and not category:
         errors.append("Category is required.")
 
-    if category == "Wishlist Security":
+    if category == "Wishlist Request":
         if not wishlist_justification:
             errors.append("Business Justification is required for Wishlist Security.")
         if not wishlist_attachments:
@@ -522,6 +524,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
