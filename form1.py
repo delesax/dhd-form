@@ -334,7 +334,7 @@ with c4:
 st.divider()
 
 # ── Category ────────────────────────────────────────────────────────────────
-c1, c2, c3 = st.columns(2)
+c1, c2 = st.columns(2)
 with c1:
     category = None
     if product and product in CATEGORY_MAP:
@@ -570,6 +570,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
