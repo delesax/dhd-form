@@ -125,6 +125,14 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Other"
         ],
     "LGR":[
+        "General Query",
+        "Security Set-up / Data",
+        "Redemption / Repayment",
+        "Classifications",
+        "Valuation/Fund",
+        "Issuer/Party",
+        "Security Attributes",
+
         "RCA",	
         "Pillar 3", 
         "FLD",	
@@ -167,7 +175,43 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Preview Data Related",
         "Stale Value",
         "other"
-        ]
+        ],
+    "General Query": ["NA"],
+    "Security Set-up / Data":[
+        "Private Credit",
+        "Real Estate",
+        "Other"
+    ],
+    "Redemption / Repayment":[
+    "Incorrect processing",
+	"Sink Schedule update",
+    "Corporate Action",
+    "Other"
+    ],
+    
+    "Classifications":[
+    "Incorrect Classification",
+    "Issuer Industry",
+    "Eligibility",
+    "LGIM Asset Type",
+    "Other"
+    ],
+    
+    "Valuation/Fund":[
+    "Fund / JV queries",
+    "Pricing",
+    "Valuations"
+    ],
+    
+    "Issuer/Party":[
+        "Country attributes",
+        "Missing / dummy party",
+        "Ultimate Parent",
+        "Other"
+    ],
+    
+    "Security Attributes":["NA"]
+
 }
 
 CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Request",  "New Account Data Attribute Request", 
@@ -524,6 +568,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
