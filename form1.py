@@ -38,7 +38,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
     "[ESG] Enviro, Social, Governance":[
         "Phoenix",
         "Legacy - CRIMS",
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         ],
     "[EBM] Benchmark Data":[
         "Axioma",
@@ -62,23 +62,23 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "Other"
         ],
     "LGR":[
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         "Legacy - CRIMS",
         "MDMS"
         ],
     "Private Credit":[
         "Phoenix",
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         "Quasar"
         ],
     "Market Data / Vendor Data":[
         "Phoenix",
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         "Quasar"
         ],
     "Others": [
         "Phoenix",
-        "Azure - State Street CRIMS",
+        "State Street CRIMS",
         "Quasar",
         "MDMS",
         "Legacy - CRIMS",
@@ -524,6 +524,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
