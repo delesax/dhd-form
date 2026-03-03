@@ -227,7 +227,7 @@ CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Reque
         "Other", "FLD",	
         "NIC",
         "Intra Month Data Quality",	
-        "RCA", "NA"	
+        "RCA", "Security Attributes"	
           }
 
 ATTACHMENT_TYPES = ["csv", "xlsx", "jpg", "jpeg", "png", "pdf"]
@@ -407,7 +407,7 @@ if category == "Wishlist Request":
     )
 
     st.download_button(
-        label="Download Security Wishlist request template",
+        label="Download Security Request template",
         data=b"excel-template-placeholder",  # ← replace with real bytes / file content
         file_name="Security_Wishlist_Template.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -508,9 +508,9 @@ if submitted:
 
     if category == "Wishlist Request":
         if not wishlist_justification:
-            errors.append("Business Justification is required for Wishlist Security.")
+            errors.append("Business Justification is required for Wishlist Request.")
         if not wishlist_attachments:
-            errors.append("Please attach at least the filled template for Wishlist Security.")
+            errors.append("Please attach at least the filled template for Wishlist Request.")
     
     if category in Vendor_category:
         if not vendor_justification:
@@ -533,7 +533,7 @@ if submitted:
         attachments_count = 0
         attachment_names = []
 
-        if category == "Wishlist Security" and wishlist_attachments:
+        if category == "Wishlist Request" and wishlist_attachments:
             attachments_count = len(wishlist_attachments)
             attachment_names = [f.name for f in wishlist_attachments]
         elif detail_attachments:
@@ -565,6 +565,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
