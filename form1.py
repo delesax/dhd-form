@@ -314,7 +314,7 @@ with cols[3]: st.text_input("Division:", value="Data Ops", disabled=True)
 st.divider()
 
 # ── Core metadata ──
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns(4)
 with c1:
     request_type = st.selectbox("Request Type", ["Incident", "Request"], key="request_type")
     
@@ -325,12 +325,16 @@ with c3:
     market_type = None
     if product == "[ESM] Security Data" or product ==  "[EAPM] Pricing":
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
+with c4:
+    if product:
+    # Show related systems based on the selected product type
+        related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")
 
 
 st.divider()
 
 # ── Category ────────────────────────────────────────────────────────────────
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns(2)
 with c1:
     category = None
     if product and product in CATEGORY_MAP:
@@ -353,10 +357,7 @@ with c2:
 
 # ── Sub-category (only shown when relevant) ────────────────────────────────
 
-with c3:
-    if product:
-    # Show related systems based on the selected product type
-        related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")
+
 
 
 # ── Conditional content ─────────────────────────────────────────────────────
@@ -569,6 +570,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
