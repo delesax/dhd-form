@@ -463,7 +463,7 @@ if category == "Wishlist Request":
 
     
 elif should_show_details(category, sub_category):
-    subject = st.text_input("Subject *", key="subject")
+    subject = st.text_input("Short Description *", key="subject")
     
     additional_info = st.text_area(
         "Additional Information *", key="add_info", height=160
@@ -523,7 +523,7 @@ if submitted:
     
     elif should_show_details(category, sub_category):
         if not subject:
-            errors.append("Subject is required.")
+            errors.append("Short Description is required.")
         if not additional_info:
             errors.append("Additional Information is required.")
 
@@ -561,13 +561,14 @@ if submitted:
                 "Product": product,
                 "Category": category,
                 "Sub Category": sub_category,
-                "Subject": subject,
+                "Short Descriptiont": subject,
                 "Additional Info": additional_info,
                 "Wishlist Justification": wishlist_justification,
                 "Attachments Count": attachments_count,
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
