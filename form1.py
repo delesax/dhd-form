@@ -176,8 +176,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Stale Value",
         "other"
         ],
-    "General Query": ["NA"],
-    "Security Set-up / Data":[
+	"Security Set-up / Data":[
         "Private Credit",
         "Real Estate",
         "Other"
@@ -208,9 +207,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Missing / dummy party",
         "Ultimate Parent",
         "Other"
-    ],
-    
-    "Security Attributes":["NA"]
+    ]
 
 }
 
@@ -230,7 +227,7 @@ CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Reque
         "Other", "FLD",	
         "NIC",
         "Intra Month Data Quality",	
-        "RCA",	
+        "RCA", "NA"	
           }
 
 ATTACHMENT_TYPES = ["csv", "xlsx", "jpg", "jpeg", "png", "pdf"]
@@ -568,6 +565,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
