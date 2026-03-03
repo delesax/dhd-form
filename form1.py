@@ -314,7 +314,7 @@ with cols[3]: st.text_input("Division:", value="Data Ops", disabled=True)
 st.divider()
 
 # ── Core metadata ──
-c1, c2, c3 = st.columns(4)
+c1, c2, c3, c4 = st.columns(4)
 with c1:
     request_type = st.selectbox("Request Type", ["Incident", "Request"], key="request_type")
     
@@ -570,6 +570,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
