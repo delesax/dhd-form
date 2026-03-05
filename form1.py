@@ -120,8 +120,8 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Request for new data field or dropdown option"
         ],
     "Pricing":[
-        "Data Query",	
-        "Vendor Data Request",	
+        "Pricing Enquiry",	
+        "New Asset Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
         "Other"
@@ -222,8 +222,8 @@ CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Reque
         "Other", "Data Issue", 
         "Security Detail Incorrect", "Access request / EPM issue",
         "Data quality query",	
-        "Request for new data field or dropdown option", "Data Query",	
-        "Vendor Data Request",	
+        "Request for new data field or dropdown option", "Pricing enquiry",	
+        "New Asset Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
         "Other", "FLD",	
@@ -304,7 +304,7 @@ def display_attachments(attachments):
 # Main UI ─────────────────────────────────────────────────────────────────────
 # -----------------------------------------------------------------------------
 st.title("Data Help Desk", text_alignment="center")
-st.subheader("Data Query Ticket (DQT) Form", text_alignment="center")
+st.subheader("Pricing enquiry Ticket (DQT) Form", text_alignment="center")
 
 # ── Pre-filled / read-only fields ──
 cols = st.columns(4)
@@ -572,6 +572,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
