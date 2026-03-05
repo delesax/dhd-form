@@ -330,10 +330,13 @@ with c3:
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
 with c4:
 	related_systems = None
-	if product == "Market Data / Vendor Data":
-		related_systems = None
-	else:
+
+	if product:
 		related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")
+	elif product == "Market Data / Vendor Data":
+		related_systems = None
+	
+		
 
 st.divider()
 
@@ -574,6 +577,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
