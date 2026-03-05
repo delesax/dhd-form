@@ -107,7 +107,15 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Ratings Request"
         ],
     "Benchmark Data":[
-        "Index Data"
+        "Corporate Actions Related", 
+        "Duplicate Securities",
+        "Identifier Related",
+        "Incomplete Data",
+        "Incorrect Value",
+        "Index and Constituent Data Discrepancy",
+        "Preview Data Related",
+        "Stale Value",
+        "other"
         ],
     "Product Data":[
         "Access request / EPM issue",
@@ -162,17 +170,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Equity", "Fund", "Money Market", "Mortgage", "Unlisted",
         "Corporate Action", "TBA", "Other instrument",
     ],
-    "Index Data":[
-        "Corporate Actions Related", 
-        "Duplicate Securities",
-        "Identifier Related",
-        "Incomplete Data",
-        "Incorrect Value",
-        "Index and Constituent Data Discrepancy",
-        "Preview Data Related",
-        "Stale Value",
-        "other"
-        ],
+    
 	"Security Set-up / Data":[
         "Private Credit",
         "Real Estate",
@@ -577,6 +575,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
