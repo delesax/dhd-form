@@ -9,12 +9,12 @@ st.set_page_config(page_title="Data Help Desk", layout="centered")
 # Constants and mappings
 # -----------------------------------------------------------------------------
 PRODUCTS = [
-    "[ESM] Security Data",
-    "[EAM] Account Data",
-    "[ESG] Enviro, Social, Governance",
-    "[EBM] Benchmark Data",
-    "[EPM] Product Data",
-    "[EAPM] Pricing",
+    "Security Data",
+    "Account Data",
+    "Enviro, Social, Governance",
+    "Benchmark Data",
+    "Product Data",
+    "Pricing",
     "LGR",
     "Market Data / Vendor Data",
     "Others",
@@ -23,24 +23,24 @@ PRODUCTS = [
 
 RELATED_SYSTEM: Dict[str, List[str]] = {
     
-    "[ESM] Security Data": ["CRIMS [Alpha]","Marketplace [ESM]",
+    "Security Data": ["CRIMS [Alpha]","Marketplace [ESM]",
 							"Legacy Systems",
 							"Third party vendor",
 							"Other or N/A"
 						   ],
-    "[EAM] Account Data":[
+    "Account Data":[
         "Pega (redirect to Pega team)",
-        "EAM",
+        "Marketplace [EAM]",
         "CDP",
         "CRIMS/Appian (Raise Salesforce)",
         "Other"
         ],
-    "[ESG] Enviro, Social, Governance":[
+    "Enviro, Social, Governance":[
         "Phoenix",
         "Legacy - CRIMS",
         "State Street CRIMS",
         ],
-    "[EBM] Benchmark Data":[
+    "Benchmark Data":[
         "Axioma",
         "Guideline Monitoring",
         "iLID",
@@ -50,14 +50,16 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "Phoenix",
         "Scope"
         ],
-    "[EPM] Product Data":[
-        "EPM",
-        "CDP",
+    "Product Data":[
+        "Marketplace [EPM]",
+        "[EPM]",
         "Other"
         ],
-    "[EAPM] Pricing":[
-        "Quasar",
-        "CDP",
+    "Pricing":[
+        "Apollo",
+		"Quasar",
+		"Phoenix",
+        "Marketplace [EAPM]",
         "CRIMS",
         "Other"
         ],
@@ -88,14 +90,14 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
 }
 
 CATEGORY_MAP: Dict[str, List[str]] = {
-    "[ESM] Security Data": [
+    "Security Data": [
         "General Query",
         "Instrument Set-Up",
         "Accrued Interest", 
         "Share Class Set Up",
         "Wishlist Request",
     ],
-    "[EAM] Account Data":[
+    "Account Data":[
         "New Account Data Attribute Request", 
         "Change to Existing Account Data Attribute",
         "Access request / EAM issue",
@@ -104,20 +106,20 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Account Data Report Request",
         "Other"
         ],
-    "[ESG] Enviro, Social, Governance":[
+    "Enviro, Social, Governance":[
         "Data Issue", 
         "Security Detail Incorrect",
         "Ratings Request"
         ],
-    "[EBM] Benchmark Data":[
+    "Benchmark Data":[
         "Index Data"
         ],
-    "[EPM] Product Data":[
+    ""Product Data":[
         "Access request / EPM issue",
         "Data quality query",	
         "Request for new data field or dropdown option"
         ],
-    "[EAPM] Pricing":[
+    "Pricing":[
         "Data Query",	
         "Vendor Data Request",	
         "Access request / EPM issue",	
@@ -323,7 +325,7 @@ with c2:
 
 with c3:
     market_type = None
-    if product == "[ESM] Security Data" or product ==  "[EAPM] Pricing":
+    if product == "Security Data" or product ==  "Pricing":
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
 with c4:
     if product:
@@ -503,7 +505,7 @@ if submitted:
 
     if not product:
         errors.append("Product Type is required.")
-    if product == "[ESM] Security Data" and not category:
+    if product == "Security Data" and not category:
         errors.append("Category is required for [ESM] Security Data.")
     
     if not related_systems:
@@ -570,6 +572,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
