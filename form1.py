@@ -331,8 +331,8 @@ with c3:
 with c4:
 	related_systems = None
     if product !=  "Market Data / Vendor Data":
-    # Show related systems based on the selected product type
-        related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")
+		 # Show related systems based on the selected product type
+		related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")
 
 
 st.divider()
@@ -574,6 +574,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
