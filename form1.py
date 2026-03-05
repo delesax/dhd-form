@@ -72,11 +72,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "State Street CRIMS",
         "Quasar"
         ],
-    "Market Data / Vendor Data":[
-        "Phoenix",
-        "State Street CRIMS",
-        "Quasar"
-        ],
+    
     "Others": [
         "Phoenix",
         "State Street CRIMS",
@@ -577,6 +573,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
