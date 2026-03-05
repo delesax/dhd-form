@@ -41,12 +41,8 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "State Street CRIMS",
         ],
     "Benchmark Data":[
-        "Axioma",
-        "Guideline Monitoring",
-        "iLID",
-        "INDIGO Equities",
-        "INDIGO Fixed Income",
-        "Performance (B-ONE)",
+        "INDIGO",
+        "B-ONE",
         "Phoenix",
         "Scope"
         ],
@@ -575,6 +571,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
