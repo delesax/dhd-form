@@ -120,7 +120,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         ],
     "Asset Pricing":[
         "Asset Pricing Enquiry",	
-        "New Asset Request",	
+        "New Asset Vendor Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
         "Other"
@@ -577,6 +577,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
