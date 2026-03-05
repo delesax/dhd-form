@@ -209,7 +209,13 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Missing / dummy party",
         "Ultimate Parent",
         "Other"
-    ]
+    ],
+
+	"Pricing Enquiry":[
+		"Sale Price Query",
+		"Price Movement Query",
+		"Missing Price Query",
+	]
 
 }
 
@@ -304,7 +310,7 @@ def display_attachments(attachments):
 # Main UI ─────────────────────────────────────────────────────────────────────
 # -----------------------------------------------------------------------------
 st.title("Data Help Desk", text_alignment="center")
-st.subheader("Pricing enquiry Ticket (DQT) Form", text_alignment="center")
+st.subheader("Data Query Ticket (DQT) Form", text_alignment="center")
 
 # ── Pre-filled / read-only fields ──
 cols = st.columns(4)
@@ -572,6 +578,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
