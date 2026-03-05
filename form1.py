@@ -56,7 +56,6 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "Other"
         ],
     "Asset Pricing":[
-        "Apollo",
 		"Quasar",
 		"Phoenix",
         "Marketplace [EAPM]",
@@ -212,7 +211,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
     ],
 
 	"Asset Pricing Enquiry":[
-		"Sale Price Query",
+		"Stale Price Query",
 		"Price Movement Query",
 		"Missing Price Query",
 	]
@@ -578,6 +577,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
