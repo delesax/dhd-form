@@ -114,7 +114,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
     "Benchmark Data":[
         "Index Data"
         ],
-    ""Product Data":[
+    "Product Data":[
         "Access request / EPM issue",
         "Data quality query",	
         "Request for new data field or dropdown option"
@@ -572,6 +572,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
