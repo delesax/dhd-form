@@ -14,7 +14,7 @@ PRODUCTS = [
     "Enviro, Social, Governance",
     "Benchmark Data",
     "Product Data",
-    "Pricing",
+    "Asset Pricing",
     "LGR",
     "Market Data / Vendor Data",
     "Others",
@@ -55,7 +55,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
         "[EPM]",
         "Other"
         ],
-    "Pricing":[
+    "Asset Pricing":[
         "Apollo",
 		"Quasar",
 		"Phoenix",
@@ -119,8 +119,8 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Data quality query",	
         "Request for new data field or dropdown option"
         ],
-    "Pricing":[
-        "Pricing Enquiry",	
+    "Asset Pricing":[
+        "Asset Pricing Enquiry",	
         "New Asset Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
@@ -200,7 +200,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
     
     "Valuation/Fund":[
     "Fund / JV queries",
-    "Pricing",
+    "Asset Pricing",
     "Valuations"
     ],
     
@@ -211,7 +211,7 @@ SUBCATEGORY_MAP: Dict[str, List[str]] = {
         "Other"
     ],
 
-	"Pricing Enquiry":[
+	"Asset Pricing Enquiry":[
 		"Sale Price Query",
 		"Price Movement Query",
 		"Missing Price Query",
@@ -228,7 +228,7 @@ CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Reque
         "Other", "Data Issue", 
         "Security Detail Incorrect", "Access request / EPM issue",
         "Data quality query",	
-        "Request for new data field or dropdown option", "Pricing enquiry",	
+        "Request for new data field or dropdown option", "Asset Pricing enquiry",	
         "New Asset Request",	
         "Access request / EPM issue",	
         "Reporting Request",	
@@ -331,7 +331,7 @@ with c2:
 
 with c3:
     market_type = None
-    if product == "Security Data" or product ==  "Pricing":
+    if product == "Security Data" or product ==  "Asset Pricing":
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
 with c4:
     if product:
@@ -578,6 +578,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
