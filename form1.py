@@ -313,7 +313,7 @@ st.divider()
 # ── Core metadata ──
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    request_type = st.selectbox("Request Type", ["Incident", "Request"], key="request_type")
+    query_type = st.selectbox("Request Type", ["Incident", "Request"], key="query_type")
     
 with c2:
     product = selectbox_with_placeholder("Data Category", PRODUCTS, key="product_type")
@@ -556,7 +556,7 @@ if submitted:
                 "Location": "London",
                 "Cost Center": "1234",
                 "Division": "Data Ops",
-                "Request Type": request_type,
+                "Query Type": request_type,
                 "Private/Public": market_type,
                 "Product": product,
                 "Category": category,
@@ -568,6 +568,7 @@ if submitted:
                 "Attachment Names": attachment_names,
                 "Template Downloaded": template_downloaded,
         })
+
 
 
 
