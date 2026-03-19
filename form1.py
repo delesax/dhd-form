@@ -83,6 +83,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
 CATEGORY_MAP: Dict[str, List[str]] = {
     "Security Data": [
         "General Query",
+		"Data Quality Issue",
         "Instrument Set-Up",
         "Accrued Interest", 
         "Share Class Set Up",
@@ -95,12 +96,14 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "EAM Development (Enhancement/Functionality) Request",
         "Account Data Quality Issue",
         "Account Data Report Request",
+		"Data Quality Issue",
         "Other"
         ],
     "Enviro, Social, Governance":[
         "Data Issue", 
         "Security Detail Incorrect",
-        "Ratings Request"
+        "Ratings Request",
+		"Data Quality Issue"
         ],
     "Benchmark Data":[
         "Corporate Actions Related", 
@@ -111,18 +114,21 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Index and Constituent Data Discrepancy",
         "Preview Data Related",
         "Stale Value",
+		"Data Quality Issue",
         "other"
         ],
     "Product Data":[
         "Access request / EPM issue",
         "Data quality query",	
-        "Request for new data field or dropdown option"
+        "Request for new data field or dropdown option",
+		"Data Quality Issue"
         ],
     "Asset Pricing":[
         "Asset Pricing Enquiry",	
         "New Asset Vendor Request",	
         "Access request / EPM issue",	
-        "Reporting Request",	
+        "Reporting Request",
+		"Data Quality Issue",
         "Other"
         ],
     "LGR":[
@@ -140,7 +146,8 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "NIC",
         "Intra Month Data Quality",
         "LGR Month End", 
-        "LGR Year End", 	
+        "LGR Year End", 
+		"Data Quality Issue",
         "Others"
         ],
     "Market Data / Vendor Data":[
@@ -149,6 +156,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Request to Transfer Market Data Services",
         "Index Related Request",
         "Use and Contractual Rights Queries",
+		"Data Quality Issue",
         "Other"
         ],
     "Others": [
