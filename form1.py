@@ -156,6 +156,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
         "Request to Transfer Market Data Services",
         "Index Related Request",
         "Use and Contractual Rights Queries",
+		"Vendor-related Issue",
 		"Data Quality Issue",
         "Other"
         ],
