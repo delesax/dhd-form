@@ -17,9 +17,9 @@ PRODUCTS = [
     "Asset Pricing",
     "LGR",
     "Market Data / Vendor Data",
+	"Risk Analytics (Security/Account Level)",
     "Others",
 ]
-
 
 RELATED_SYSTEM: Dict[str, List[str]] = {
     
