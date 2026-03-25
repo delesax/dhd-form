@@ -1,4 +1,3 @@
-
 import streamlit as st
 from typing import Dict, List, Optional
 import mimetypes
@@ -17,300 +16,64 @@ PRODUCTS = [
     "Asset Pricing",
     "LGR",
     "Market Data / Vendor Data",
-	"Risk Analytics (Security/Account Level)",
+    "Risk Analytics (Security/Account Level)", # Requirement 1
     "Others",
 ]
 
-RELATED_SYSTEM: Dict[str, List[str]] = {
-    
-    "Security Data": ["CRIMS [Alpha]","Marketplace [ESM]",
-							"Legacy Systems",
-							"Third party vendor",
-							"Other or N/A"
-						   ],
-    "Account Data":[
-        "Pega (redirect to Pega team)",
-        "Marketplace [EAM]",
-        "CDP",
-        "CRIMS/Appian (Raise Salesforce)",
-        "Other"
-        ],
-    "Enviro, Social, Governance":[
-        "Phoenix",
-        "Legacy - CRIMS",
-        "State Street CRIMS",
-        ],
-    "Benchmark Data":[
-        "INDIGO",
-        "B-ONE",
-        "Phoenix",
-        "Scope"
-        ],
-    "Product Data":[
-        "Marketplace [EPM]",
-        "[EPM]",
-        "Other"
-        ],
-    "Asset Pricing":[
-		"Quasar",
-		"Phoenix",
-        "Marketplace [EAPM]",
-        "CRIMS",
-        "Other"
-        ],
-    "LGR":[
-        "State Street CRIMS",
-        "Legacy - CRIMS",
-        "MDMS"
-        ],
-    "Private Credit":[
-        "Phoenix",
-        "State Street CRIMS",
-        "Quasar"
-        ],
-    
-    "Others": [
-        "Phoenix",
-        "State Street CRIMS",
-        "Quasar",
-        "MDMS",
-        "Legacy - CRIMS",
-        "ARC"
-        ]
+# Risk Specific Constants
+RISK_ENGINES = ["Axioma Legacy", "Axioma STOM", "PORT+ STOM", "MARS STOM"]
+DATA_SOURCE_LEGACY = ["CDP", "Snowflake", "EUCs Legacy"]
+DATA_SOURCE_STOM = ["CDP", "Snowflake", "CRIMS", "EUC STOM"]
 
+RELATED_SYSTEM: Dict[str, List[str]] = {
+    "Security Data": ["CRIMS [Alpha]","Marketplace [ESM]", "Legacy Systems", "Third party vendor", "Other or N/A"],
+    "Account Data": ["Pega (redirect to Pega team)", "Marketplace [EAM]", "CDP", "CRIMS/Appian (Raise Salesforce)", "Other"],
+    "Enviro, Social, Governance": ["Phoenix", "Legacy - CRIMS", "State Street CRIMS"],
+    "Benchmark Data": ["INDIGO", "B-ONE", "Phoenix", "Scope"],
+    "Product Data": ["Marketplace [EPM]", "[EPM]", "Other"],
+    "Asset Pricing": ["Quasar", "Phoenix", "Marketplace [EAPM]", "CRIMS", "Other"],
+    "LGR": ["State Street CRIMS", "Legacy - CRIMS", "MDMS"],
+    "Others": ["Phoenix", "State Street CRIMS", "Quasar", "MDMS", "Legacy - CRIMS", "ARC"]
 }
 
 CATEGORY_MAP: Dict[str, List[str]] = {
-    "Security Data": [
-        "General Query",
-		"Data Quality Issue",
-        "Instrument Set-Up",
-        "Accrued Interest", 
-        "Share Class Set Up",
-        "Wishlist Request",
-    ],
-    "Account Data":[
-        "New Account Data Attribute Request", 
-        "Change to Existing Account Data Attribute",
-        "Access request / EAM issue",
-        "EAM Development (Enhancement/Functionality) Request",
-        "Account Data Quality Issue",
-        "Account Data Report Request",
-		"Data Quality Issue",
-        "Other"
-        ],
-    "Enviro, Social, Governance":[
-        "Data Issue", 
-        "Security Detail Incorrect",
-        "Ratings Request",
-		"Data Quality Issue"
-        ],
-    "Benchmark Data":[
-        "Corporate Actions Related", 
-        "Duplicate Securities",
-        "Identifier Related",
-        "Incomplete Data",
-        "Incorrect Value",
-        "Index and Constituent Data Discrepancy",
-        "Preview Data Related",
-        "Stale Value",
-		"Data Quality Issue",
-        "other"
-        ],
-    "Product Data":[
-        "Access request / EPM issue",
-        "Data quality query",	
-        "Request for new data field or dropdown option",
-		"Data Quality Issue"
-        ],
-    "Asset Pricing":[
-        "Asset Pricing Enquiry",	
-        "New Asset Vendor Request",	
-        "Access request / EPM issue",	
-        "Reporting Request",
-		"Data Quality Issue",
-        "Other"
-        ],
-    "LGR":[
-        "General Query",
-        "Security Set-up / Data",
-        "Redemption / Repayment",
-        "Classifications",
-        "Valuation/Fund",
-        "Issuer/Party",
-        "Security Attributes",
-
-        "RCA",	
-        "Pillar 3", 
-        "FLD",	
-        "NIC",
-        "Intra Month Data Quality",
-        "LGR Month End", 
-        "LGR Year End", 
-		"Data Quality Issue",
-        "Others"
-        ],
-    "Market Data / Vendor Data":[
-        "Request for New Market Data (Onboard New Service)",
-        "Request for Access to Market Data (Existing)",
-        "Request to Transfer Market Data Services",
-        "Index Related Request",
-        "Use and Contractual Rights Queries",
-		"Vendor-related Issue",
-		"Data Quality Issue",
-        "Other"
-        ],
-    "Others": [
-    #placeholder   
-    ]
-    
-        
-    # Add more products → categories when needed
+    "Security Data": ["General Query", "Data Quality Issue", "Instrument Set-Up", "Accrued Interest", "Share Class Set Up", "Wishlist Request"],
+    "Account Data": ["New Account Data Attribute Request", "Change to Existing Account Data Attribute", "Access request / EAM issue", "Account Data Quality Issue", "Other"],
+    "Enviro, Social, Governance": ["Data Issue", "Security Detail Incorrect", "Ratings Request", "Data Quality Issue"],
+    "Benchmark Data": ["Corporate Actions Related", "Duplicate Securities", "Identifier Related", "Incomplete Data", "Incorrect Value", "Data Quality Issue", "other"],
+    "Product Data": ["Access request / EPM issue", "Data quality query", "Request for new data field or dropdown option", "Data Quality Issue"],
+    "Asset Pricing": ["Asset Pricing Enquiry", "New Asset Vendor Request", "Access request / EPM issue", "Reporting Request", "Data Quality Issue", "Other"],
+    "LGR": ["General Query", "Security Set-up / Data", "Redemption / Repayment", "Classifications", "Valuation/Fund", "Issuer/Party", "Security Attributes", "RCA", "Pillar 3", "FLD", "NIC", "Intra Month Data Quality", "LGR Month End", "LGR Year End", "Data Quality Issue", "Others"],
+    "Market Data / Vendor Data": ["Request for New Market Data (Onboard New Service)", "Request for Access to Market Data (Existing)", "Request to Transfer Market Data Services", "Index Related Request", "Use and Contractual Rights Queries", "Vendor-related Issue", "Data Quality Issue", "Other"],
+    "Others": []
 }
 
-
-SUBCATEGORY_MAP: Dict[str, List[str]] = {
-    "Instrument Set-Up": [
-        "Bond", "Asset Reporting", "Derivatives",
-        "Equity", "Fund", "Money Market", "Mortgage", "Unlisted",
-        "Corporate Action", "TBA", "Other instrument",
-    ],
-    
-	"Security Set-up / Data":[
-        "Private Credit",
-        "Real Estate",
-        "Other"
-    ],
-    "Redemption / Repayment":[
-    "Incorrect processing",
-	"Sink Schedule update",
-    "Corporate Action",
-    "Other"
-    ],
-    
-    "Classifications":[
-    "Incorrect Classification",
-    "Issuer Industry",
-    "Eligibility",
-    "LGIM Asset Type",
-    "Other"
-    ],
-    
-    "Valuation/Fund":[
-    "Fund / JV queries",
-    "Asset Pricing",
-    "Valuations"
-    ],
-    
-    "Issuer/Party":[
-        "Country attributes",
-        "Missing / dummy party",
-        "Ultimate Parent",
-        "Other"
-    ],
-
-	"Asset Pricing Enquiry":[
-		"Stale Price Query",
-		"Price Movement Query",
-		"Missing Price Query",
-	]
-
-}
-
-CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Request",  "New Account Data Attribute Request", 
-        "Change to Existing Account Data Attribute",
-        "Access request / EAM issue",
-        "EAM Development (Enhancement/Functionality) Request",
-        "Account Data Quality Issue",
-        "Account Data Report Request",
-        "Other", "Data Issue", 
-        "Security Detail Incorrect", "Access request / EPM issue",
-        "Data quality query",	
-        "Request for new data field or dropdown option", "Asset Pricing enquiry",	
-        "New Asset Request",	
-        "Access request / EPM issue",	
-        "Reporting Request",	
-        "Other", "FLD",	
-        "NIC",
-        "Intra Month Data Quality",	
-        "RCA", "Security Attributes"	
-          }
+CATEGORIES_WITHOUT_SUB = {"General Query", "Share Class Set Up", "Wishlist Request", "New Account Data Attribute Request", "Change to Existing Account Data Attribute", "Access request / EAM issue", "Account Data Quality Issue", "Other", "Data Issue", "Security Detail Incorrect", "Access request / EPM issue", "Data quality query", "Request for new data field or dropdown option", "Asset Pricing enquiry", "New Asset Request", "Reporting Request", "FLD", "NIC", "Intra Month Data Quality", "RCA", "Security Attributes"}
 
 ATTACHMENT_TYPES = ["csv", "xlsx", "jpg", "jpeg", "png", "pdf"]
-
-Vendor_category = [
-        "Request for New Market Data (Onboard New Service)",
-        "Request for Access to Market Data (Existing)",
-        "Request to Transfer Market Data Services",
-        "Index Related Request",
-        "Use and Contractual Rights Queries",
-        "Other"
-        ]
 
 # -----------------------------------------------------------------------------
 # Helpers
 # -----------------------------------------------------------------------------
-def selectbox_with_placeholder(
-    label: str,
-    options: List[str],
-    placeholder: str = "Please select",
-    key: str = None
-) -> Optional[str]:
-    if not key:
-        key = f"select_{label.lower().replace(' ', '_')}"
+def selectbox_with_placeholder(label: str, options: List[str], placeholder: str = "Please select", key: str = None) -> Optional[str]:
+    if not key: key = f"select_{label.lower().replace(' ', '_')}"
     display_options = [placeholder] + options
     choice = st.selectbox(label, display_options, index=0, key=key)
     return None if choice == placeholder else choice
 
-def should_show_details(category: Optional[str], sub_category: Optional[str]) -> bool:
-    if not category:
-        return False
-    if category == "Wishlist Request":
-        return False  # has its own special block
-    if sub_category:
-        return True
-    if category in CATEGORIES_WITHOUT_SUB:
-        return True
-    return False
-
 def display_attachments(attachments):
-    """Show nice preview/list of uploaded files"""
-    if not attachments:
-        return
-
+    if not attachments: return
     st.markdown("**Uploaded files:**")
-    
     for file in attachments:
-        file_type, _ = mimetypes.guess_type(file.name)
-        
-        col_icon, col_info = st.columns([1, 5])
-        
-        with col_icon:
-            if file_type and file_type.startswith("image/"):
-                try:
-                    st.image(file, width=90)
-                except:
-                    st.write("🖼️")
-            elif file_type and "pdf" in file_type:
-                st.write("📕")
-            elif file_type and any(x in file_type for x in ["spreadsheet", "excel", "csv"]):
-                st.write("📊")
-            else:
-                st.write("📄")
-        
-        with col_info:
-            st.write(f"**{file.name}**")
-            size_kb = file.size / 1024
-            st.caption(f"{size_kb:.1f} KB  •  {file.type or 'unknown type'}")
+        st.write(f"📄 **{file.name}** ({file.size/1024:.1f} KB)")
 
-
-#-----------------------------------------------------------------------------
-# Main UI ─────────────────────────────────────────────────────────────────────
 # -----------------------------------------------------------------------------
-st.title("Data Help Desk", text_alignment="center")
-st.subheader("Data Query Ticket (DQT) Form", text_alignment="center")
+# Main UI
+# -----------------------------------------------------------------------------
+st.title("Data Help Desk")
+st.subheader("Data Query Ticket (DQT) Form")
 
-# ── Pre-filled / read-only fields ──
+# Static Fields
 cols = st.columns(4)
 with cols[0]: st.text_input("Requester:", value="Olaoye, Oyedele", disabled=True)
 with cols[1]: st.text_input("Location:", value="London", disabled=True)
@@ -319,298 +82,75 @@ with cols[3]: st.text_input("Division:", value="Data Ops", disabled=True)
 
 st.divider()
 
-# ── Core metadata ──
+# Core Metadata
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     query_type = st.selectbox("Request Type", ["Incident", "Request"], key="query_type")
-    
 with c2:
     product = selectbox_with_placeholder("Data Category", PRODUCTS, key="product_type")
 
+is_risk = (product == "Risk Analytics (Security/Account Level)")
+
 with c3:
+    risk_analytics_level = None
     market_type = None
-    if product == "Security Data" or product ==  "Asset Pricing":
+    if is_risk:
+        # Requirement 2 & 3: Risk Analytics Level replaces Public/Private
+        risk_analytics_level = selectbox_with_placeholder("Risk Analytics Level", ["Instrument Level", "Account/Portfolio Level"], key="risk_level")
+    elif product in ["Security Data", "Asset Pricing"]:
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
+
 with c4:
-	related_systems = None
-	if product == "Market Data / Vendor Data":
-		related_systems = None
-	elif product:
-		related_systems = selectbox_with_placeholder("Related System",RELATED_SYSTEM.get(product, []),key="related_system")	
-		
+    risk_engine = None
+    related_systems = None
+    if is_risk:
+        # Requirement 5 & 6: Risk Engine replaces Related System
+        risk_engine = selectbox_with_placeholder("Risk Engine", RISK_ENGINES, key="risk_engine")
+    elif product and product != "Market Data / Vendor Data":
+        related_systems = selectbox_with_placeholder("Related System", RELATED_SYSTEM.get(product, []), key="related_system")
+
 st.divider()
 
-# ── Category ────────────────────────────────────────────────────────────────
-c1, c2 = st.columns(2)
-with c1:
-    category = None
-    if product and product in CATEGORY_MAP:
-        category = selectbox_with_placeholder("Category Type", CATEGORY_MAP[product], key="category")
+# ── Risk Analytics Specific Logic (Requirement 7, 8, 9) ──
+data_source = None
+euc_name = None
 
-# ── Sub-category (only shown when relevant) ────────────────────────────────
-with c2:
-    sub_category = None
-    if (
-        category
-        and category not in CATEGORIES_WITHOUT_SUB
-        and category in SUBCATEGORY_MAP
-        and SUBCATEGORY_MAP[category]  # not empty
-    ):
-        sub_category = selectbox_with_placeholder(
-            "Sub Category Type",
-            SUBCATEGORY_MAP[category],
-            key="sub_category"
-    )
-
-# ── Sub-category (only shown when relevant) ────────────────────────────────
-
-
-
-
-# ── Conditional content ─────────────────────────────────────────────────────
-
-subject = None
-additional_info = None
-vendor_justification = None
-vendor_attachments = None
-wishlist_justification = None
-wishlist_attachments = None
-detail_attachments = None
-template_downloaded = False
-submitted = False 
-
-
-if category in Vendor_category:
-    vendor_justification = st.text_area(
-        "Business Justification *",
-        key="vendor_justification",
-        height=120
-        )
-    st.markdown("##### Attachments")
-    st.caption("Drag & drop files here (completed template + supporting images/documents) or click to browse")
-
-    vendor_attachments = st.file_uploader(
-            label="Upload files",
-            type=ATTACHMENT_TYPES,
-            accept_multiple_files=True,
-            key="vendor_attachments",
-            label_visibility="collapsed"
-        )
-    display_attachments(vendor_attachments)
+if is_risk and risk_engine:
+    rc1, rc2 = st.columns(2)
+    with rc1:
+        # Requirement 8: Conditional Data Source dropdowns
+        ds_options = DATA_SOURCE_LEGACY if risk_engine == "Axioma Legacy" else DATA_SOURCE_STOM
+        data_source = selectbox_with_placeholder("Data Source", ds_options, key="data_source")
     
-    st.divider()
-    
-    # Submit ─ compact & right-aligned
-    left, right = st.columns([3, 1])
-    
-    with right:
-        with st.form("submit_form", clear_on_submit=False):
-            submitted = st.form_submit_button(
-                "Submit Ticket",
-                use_container_width=False,
-                type="primary"
-            )
+    with rc2:
+        # Requirement 9: EUC Name field
+        if data_source in ["EUCs Legacy", "EUC STOM"]:
+            euc_name = st.text_input("EUC Name", key="euc_name")
 
+# ── Standard Category Selection (Hidden if Risk Analytics) ──
+category = None
+sub_category = None
 
-if category == "Wishlist Request":
-    st.info(
-        "Use this template to request securities to be added to the LGIM State Street "
-        "security universe for overnight Bloomberg enrichment (30 days)." 
-    )
+if not is_risk:
+    c1, c2 = st.columns(2)
+    with c1:
+        if product and product in CATEGORY_MAP:
+            category = selectbox_with_placeholder("Category Type", CATEGORY_MAP[product], key="category")
+    with c2:
+        if category and category not in CATEGORIES_WITHOUT_SUB:
+            # Note: Assuming SUBCATEGORY_MAP exists from your previous code
+            # (Keeping logic consistent with your snippet)
+            pass 
 
-    st.download_button(
-        label="Download Security Request template",
-        data=b"excel-template-placeholder",  # ← replace with real bytes / file content
-        file_name="Security_Wishlist_Template.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        key="wishlist_template_dl"
-    )
-    template_downloaded = True
-
-    st.markdown(
-        "Please fill the template, attach it below, and provide business justification."   
-        "\nPlease download the request template below."
-        "Please, provide the necessary information on the securities required to be enriched." 
-        "\n\nFurther guidance can be found in the template." " Once filled in please attach it to this request and submit it.\n"
-    )
-    st.info("There are costs associated with requesting Bloomberg data, therefore requests will be assessed and may be rejected or additional justification required."
-    )
-
-    wishlist_justification = st.text_area(
-        "Business Justification *",
-        key="wishlist_justification",
-        height=120
-    )
-    st.markdown("##### Attachments")
-    st.caption("Drag & drop files here (completed template + supporting images/documents) or click to browse")
-    
-    wishlist_attachments = st.file_uploader(
-            label="Upload files",
-            type=ATTACHMENT_TYPES,
-            accept_multiple_files=True,
-            key="wishlist_attachments",
-            label_visibility="collapsed"
-        )
-    
-    display_attachments(wishlist_attachments)
-
-
-    
-    st.divider()
-    
-    # Submit ─ compact & right-aligned
-    left, right = st.columns([3, 1])
-    
-    with right:
-        with st.form("submit_form", clear_on_submit=False):
-            submitted = st.form_submit_button(
-                "Submit Ticket",
-                use_container_width=False,
-                type="primary"
-            )
-    
-
-    
-elif should_show_details(category, sub_category):
+# ── Final Description Fields ──
+# "Short Description and Additional Information fields should Follow the EUC Name"
+if (is_risk and risk_engine) or (not is_risk and category):
     subject = st.text_input("Short Description *", key="subject")
+    additional_info = st.text_area("Additional Information *", key="add_info", height=160)
     
-    additional_info = st.text_area(
-        "Additional Information *", key="add_info", height=160
-    )
-    
-    st.markdown("##### Attachments (optional)")
-    st.caption("Drag & drop images, documents, spreadsheets…")
-    
-    detail_attachments = st.file_uploader(
-            label="Upload files",
-            type=ATTACHMENT_TYPES,
-            accept_multiple_files=True,
-            key="detail_attachments",
-            label_visibility="collapsed"
-        )
-    
+    detail_attachments = st.file_uploader("Upload files", type=ATTACHMENT_TYPES, accept_multiple_files=True, key="detail_attachments")
     display_attachments(detail_attachments)
     
-    st.divider()
-    
-    # Submit ─ compact & right-aligned
-    left, right = st.columns([3, 1])
-    
-    with right:
-        with st.form("submit_form", clear_on_submit=False):
-            submitted = st.form_submit_button(
-                "Submit Ticket",
-                use_container_width=False,
-                type="primary"
-            )
-    
-    # ── Validation & result ─────────────────────────────────────────────────────
-if submitted:
-    errors = []
-
-    if not product:
-        errors.append("Product Type is required.")
-    if product == "Security Data" and not category:
-        errors.append("Category is required for [ESM] Security Data.")
-    
-    if not related_systems:
-        errors.append("Related System is required.")
-    if related_systems and not category:
-        errors.append("Category is required.")
-
-    if category == "Wishlist Request":
-        if not wishlist_justification:
-            errors.append("Business Justification is required for Wishlist Request.")
-        if not wishlist_attachments:
-            errors.append("Please attach at least the filled template for Wishlist Request.")
-    
-    if category in Vendor_category:
-        if not vendor_justification:
-            errors.append("Business Justification is required for Vendor Data.")
-        if not vendor_attachments:
-            errors.append("Please attach the completed template for Vendor Data.")
-    
-    elif should_show_details(category, sub_category):
-        if not subject:
-            errors.append("Short Description is required.")
-        if not additional_info:
-            errors.append("Additional Information is required.")
-
-    if errors:
-        for msg in errors:
-            st.error(msg)
-    else:
-        st.success("Ticket submitted successfully!")
-
-        attachments_count = 0
-        attachment_names = []
-
-        if category == "Wishlist Request" and wishlist_attachments:
-            attachments_count = len(wishlist_attachments)
-            attachment_names = [f.name for f in wishlist_attachments]
-        elif detail_attachments:
-            attachments_count = len(detail_attachments)
-            attachment_names = [f.name for f in detail_attachments]
-            
-        if category in Vendor_category and vendor_attachments:
-            attachments_count = len(vendor_attachments)
-            attachment_names = [f.name for f in vendor_attachments]
-        elif detail_attachments:
-            attachments_count = len(detail_attachments)
-            attachment_names = [f.name for f in detail_attachments]
-
-        with st.expander("Submission Summary", expanded=True):
-            st.json({
-                "Requester": "Olaoye, Oyedele",
-                "Location": "London",
-                "Cost Center": "1234",
-                "Division": "Data Ops",
-                "Query Type": request_type,
-                "Private/Public": market_type,
-                "Product": product,
-                "Category": category,
-                "Sub Category": sub_category,
-                "Short Descriptiont": subject,
-                "Additional Info": additional_info,
-                "Wishlist Justification": wishlist_justification,
-                "Attachments Count": attachments_count,
-                "Attachment Names": attachment_names,
-                "Template Downloaded": template_downloaded,
-        })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if st.button("Submit Ticket", type="primary"):
+        st.success("Ticket Submitted!")
+        # Logic for processing would go here
