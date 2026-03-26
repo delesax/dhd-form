@@ -8,8 +8,8 @@ st.set_page_config(page_title="Data Help Desk", layout="centered")
 # Constants and mappings
 # -----------------------------------------------------------------------------
 PRODUCTS = [
-    "Security Data",
-    "Account Data",
+    "Security Data (excl. Risk Analytics)",
+    "Account Data (excl. Risk Analytics)",
     "Enviro, Social, Governance",
     "Benchmark Data",
     "Product Data",
@@ -39,12 +39,12 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
 CATEGORY_MAP: Dict[str, List[str]] = {
     "Security Data": ["General Query", "Data Quality Issue", "Instrument Set-Up", "Accrued Interest", "Share Class Set Up", "Wishlist Request"],
     "Account Data": ["New Account Data Attribute Request", "Change to Existing Account Data Attribute", "Access request / EAM issue", "Account Data Quality Issue", "Other"],
-    "Enviro, Social, Governance": ["Data Issue", "Security Detail Incorrect", "Ratings Request", "Data Quality Issue"],
-    "Benchmark Data": ["Corporate Actions Related", "Duplicate Securities", "Identifier Related", "Incomplete Data", "Incorrect Value", "Data Quality Issue", "other"],
-    "Product Data": ["Access request / EPM issue", "Data quality query", "Request for new data field or dropdown option", "Data Quality Issue"],
-    "Asset Pricing": ["Asset Pricing Enquiry", "New Asset Vendor Request", "Access request / EPM issue", "Reporting Request", "Data Quality Issue", "Other"],
+    "Enviro, Social, Governance": [ "Data Quality (Security Detail Incorrect)", "Ratings Request", "Other Data Issue"],
+    "Benchmark Data": ["Corporate Actions Related", "Duplicate Securities", "Identifier Related", "Incomplete Data", "Data Quality Issue (Incorrect Value)", "other"],
+    "Product Data": ["Access request / EPM issue", "Data Quality Issue (Data Quality Query)", "Request for new data field or dropdown option"],
+    "Asset Pricing": ["Asset Pricing Enquiry", "Access Issue", "Reporting Request", "Data Quality Issue, "Other"],
     "LGR": ["General Query", "Security Set-up / Data", "Redemption / Repayment", "Classifications", "Valuation/Fund", "Issuer/Party", "Security Attributes", "RCA", "Pillar 3", "FLD", "NIC", "Intra Month Data Quality", "LGR Month End", "LGR Year End", "Data Quality Issue", "Others"],
-    "Market Data / Vendor Data": ["Request for New Market Data (Onboard New Service)", "Request for Access to Market Data (Existing)", "Request to Transfer Market Data Services", "Index Related Request", "Use and Contractual Rights Queries", "Vendor-related Issue", "Data Quality Issue", "Other"],
+    "Market Data / Vendor Data": ["Request for New Market Data (Onboard New Service)", "Request for Access to Market Data (Existing)", "Request to Transfer Market Data Services", "Index Related Request", "Use and Contractual Rights Queries", "Vendor-related Issue", "Other"],
     "Others": []
 }
 
