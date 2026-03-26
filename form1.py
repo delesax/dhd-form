@@ -42,7 +42,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
     "Enviro, Social, Governance": [ "Data Quality (Security Detail Incorrect)", "Ratings Request", "Other Data Issue"],
     "Benchmark Data": ["Corporate Actions Related", "Duplicate Securities", "Identifier Related", "Incomplete Data", "Data Quality Issue (Incorrect Value)", "other"],
     "Product Data": ["Access request / EPM issue", "Data Quality Issue (Data Quality Query)", "Request for new data field or dropdown option"],
-    "Asset Pricing": ["Asset Pricing Enquiry", "Access Issue", "Reporting Request", "Data Quality Issue, "Other"],
+    "Asset Pricing": ["Asset Pricing Enquiry", "Access Issue", "Reporting Request", "Data Quality Issue", "Other"],
     "LGR": ["General Query", "Security Set-up / Data", "Redemption / Repayment", "Classifications", "Valuation/Fund", "Issuer/Party", "Security Attributes", "RCA", "Pillar 3", "FLD", "NIC", "Intra Month Data Quality", "LGR Month End", "LGR Year End", "Data Quality Issue", "Others"],
     "Market Data / Vendor Data": ["Request for New Market Data (Onboard New Service)", "Request for Access to Market Data (Existing)", "Request to Transfer Market Data Services", "Index Related Request", "Use and Contractual Rights Queries", "Vendor-related Issue", "Other"],
     "Others": []
