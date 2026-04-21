@@ -26,13 +26,15 @@ DATA_SOURCE_LEGACY = ["CDP", "Snowflake", "EUCs Legacy"]
 DATA_SOURCE_STOM = ["CDP", "Snowflake", "CRIMS", "EUC STOM"]
 
 RELATED_SYSTEM: Dict[str, List[str]] = {
-    "Security Data": ["CRIMS [Alpha]","Marketplace [ESM]", "Legacy Systems", "Third party vendor", "Other or N/A"],
-    "Account Data": ["Pega (redirect to Pega team)", "Marketplace [EAM]", "CDP", "CRIMS/Appian (Raise Salesforce)", "Other"],
+    "Security Data (excl. Risk Analytics)": ["CRIMS [Alpha]","Marketplace [ESM]", "Legacy Systems", "Third party vendor", "Other or N/A"],
+    "Account Data (excl. Risk Analytics)": ["Pega (redirect to Pega team)", "Marketplace [EAM]", "CDP", "CRIMS/Appian (Raise Salesforce)", "Other"],
     "Enviro, Social, Governance": ["Phoenix", "Legacy - CRIMS", "State Street CRIMS"],
     "Benchmark Data": ["INDIGO", "B-ONE", "Phoenix", "Scope"],
     "Product Data": ["Marketplace [EPM]", "[EPM]", "Other"],
     "Asset Pricing": ["Quasar", "Phoenix", "Marketplace [EAPM]", "CRIMS", "Other"],
     "LGR": ["State Street CRIMS", "Legacy - CRIMS", "MDMS"],
+    "Market Data / Vendor Data": ,
+    "Risk Analytics (Security/Account Level)"",
     "Others": ["Phoenix", "State Street CRIMS", "Quasar", "MDMS", "Legacy - CRIMS", "ARC"]
 }
 
