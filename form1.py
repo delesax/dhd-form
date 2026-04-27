@@ -16,11 +16,11 @@ PRODUCTS = [
     "Asset Pricing",
     "LGR",
     "Market Data / Vendor Data",
-    "Risk Analytics (Security/Account Level)", # Requirement 1
-    "Others",
+    "Risk Analytics (Security/Account Level)",
+    "Others"
 ]
 
-# Risk Specific Constants
+
 RISK_ENGINES = ["Axioma Legacy", "Axioma STOM", "PORT+ STOM", "MARS STOM"]
 DATA_SOURCE_LEGACY = ["CDP", "Snowflake", "EUCs Legacy"]
 DATA_SOURCE_STOM = ["CDP", "Snowflake", "CRIMS", "EUC STOM"]
@@ -39,8 +39,8 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
 }
 
 CATEGORY_MAP: Dict[str, List[str]] = {
-    "Security Data": ["General Query", "Data Quality Issue", "Instrument Set-Up", "Accrued Interest", "Share Class Set Up", "Wishlist Request"],
-    "Account Data": ["New Account Data Attribute Request", "Change to Existing Account Data Attribute", "Access request / EAM issue", "Account Data Quality Issue", "Other"],
+    "Security Data (excl. Risk Analytics)": ["General Query", "Data Quality Issue", "Instrument Set-Up", "Accrued Interest", "Share Class Set Up", "Wishlist Request"],
+    "Account Data (excl. Risk Analytics)": ["New Account Data Attribute Request", "Change to Existing Account Data Attribute", "Access request / EAM issue", "Account Data Quality Issue", "Other"],
     "Enviro, Social, Governance": [ "Data Quality (Security Detail Incorrect)", "Ratings Request", "Other Data Issue"],
     "Benchmark Data": ["Corporate Actions Related", "Duplicate Securities", "Identifier Related", "Incomplete Data", "Data Quality Issue (Incorrect Value)", "other"],
     "Product Data": ["Access request / EPM issue", "Data Quality Issue (Data Quality Query)", "Request for new data field or dropdown option"],
@@ -99,7 +99,7 @@ with c3:
     if is_risk:
         # Requirement 2 & 3: Risk Analytics Level replaces Public/Private
         risk_analytics_level = selectbox_with_placeholder("Risk Analytics Level", ["Instrument Level", "Account/Portfolio Level"], key="risk_level")
-    elif product in ["Security Data", "Asset Pricing"]:
+    elif product in ["Security Data (excl. Risk Analytics)", "Asset Pricing"]:
         market_type = selectbox_with_placeholder("Public/Private", ["Public", "Private"], key="market_type")
 
 with c4:
