@@ -34,7 +34,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
     "Asset Pricing": ["Quasar", "Phoenix", "Marketplace [EAPM]", "CRIMS", "Other"],
     "LGR": ["State Street CRIMS", "Legacy - CRIMS", "MDMS"],
     "Market Data / Vendor Data": ,
-    "Risk Analytics (Security/Account Level)"",
+    "Risk Analytics (Security/Account Level)",
     "Others": ["Phoenix", "State Street CRIMS", "Quasar", "MDMS", "Legacy - CRIMS", "ARC"]
 }
 
@@ -47,6 +47,7 @@ CATEGORY_MAP: Dict[str, List[str]] = {
     "Asset Pricing": ["Asset Pricing Enquiry", "Access Issue", "Reporting Request", "Data Quality Issue", "Other"],
     "LGR": ["General Query", "Security Set-up / Data", "Redemption / Repayment", "Classifications", "Valuation/Fund", "Issuer/Party", "Security Attributes", "RCA", "Pillar 3", "FLD", "NIC", "Intra Month Data Quality", "LGR Month End", "LGR Year End", "Data Quality Issue", "Others"],
     "Market Data / Vendor Data": ["Request for New Market Data (Onboard New Service)", "Request for Access to Market Data (Existing)", "Request to Transfer Market Data Services", "Index Related Request", "Use and Contractual Rights Queries", "Vendor-related Issue", "Other"],
+    
     "Others": []
 }
 
