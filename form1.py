@@ -34,7 +34,7 @@ RELATED_SYSTEM: Dict[str, List[str]] = {
     "Asset Pricing": ["Quasar", "Phoenix", "Marketplace [EAPM]", "CRIMS", "Other"],
     "LGR": ["State Street CRIMS", "Legacy - CRIMS", "MDMS"],
     "Market Data / Vendor Data": ,
-    "Risk Analytics (Security/Account Level)",
+    "Risk Analytics (Security/Account Level)":,
     "Others": ["Phoenix", "State Street CRIMS", "Quasar", "MDMS", "Legacy - CRIMS", "ARC"]
 }
 
